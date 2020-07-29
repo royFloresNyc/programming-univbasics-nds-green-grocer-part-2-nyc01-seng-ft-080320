@@ -9,7 +9,9 @@ def apply_coupons(cart, coupons)
     if coupon != nil
       updated_item = current_item 
       updated_item[:count] -= coupon[:num]
-      updated_cart << updated_item
+      if updated_item[:count] >= 0 
+        updated_cart << updated_item
+      end 
       discounted_item = {}
       discounted_item[:item] = "#{current_item[:item]} W/COUPON"
       discounted_item[:price] = coupon[:cost] / coupon[:num]
