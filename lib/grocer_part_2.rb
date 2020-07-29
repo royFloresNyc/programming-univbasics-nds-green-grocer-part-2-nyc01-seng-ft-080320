@@ -12,7 +12,7 @@ def apply_coupons(cart, coupons)
       discounted_item = {}
       discounted_item[:item] = "#{current_item[:item]} W/COUPON"
       discounted_item[:price] = coupon[:cost] / coupon[:num]
-      discounted_item[:clearance] = true 
+      discounted_item[:clearance] = current_item[:clearance] 
       discounted_item[:count] = coupon[:num]
       updated_cart << discounted_item
     else 
