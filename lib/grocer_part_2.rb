@@ -16,7 +16,6 @@ def apply_coupons(cart, coupons)
       discounted_item[:clearance] = true 
       discounted_item[:count] = coupon[:num]
       updated_cart << discounted_item
-      end 
     else 
       updated_cart << current_item 
     end
