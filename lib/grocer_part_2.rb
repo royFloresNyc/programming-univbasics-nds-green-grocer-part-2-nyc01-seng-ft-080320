@@ -24,7 +24,6 @@ def apply_coupons(cart, coupons)
   updated_cart
 end
 
-binding.pry 
 
 def apply_clearance(cart)
   # Consult README for inputs and outputs
