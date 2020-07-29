@@ -4,10 +4,8 @@ require 'pry'
 def apply_coupons(cart, coupons)
   updated_cart = []
   consolidated_cart = consolidate_cart(cart)
-  
   consolidated_cart.each do |current_item|
     coupon = find_item_by_name_in_collection(current_item[:item], coupons)
-    binding.pry
     if coupon && current_item[:count] >= coupon[:num]
       updated_item = current_item 
       updated_item[:count] -= coupon[:num]
@@ -25,6 +23,7 @@ def apply_coupons(cart, coupons)
       updated_cart << current_item 
     end
   end 
+  binding.pry
   updated_cart
 end
 
