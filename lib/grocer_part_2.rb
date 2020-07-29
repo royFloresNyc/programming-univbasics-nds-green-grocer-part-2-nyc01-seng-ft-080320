@@ -4,9 +4,10 @@ def apply_coupons(cart, coupons)
   updated_cart = []
   consolidated_cart = consolidate_cart(cart)
   consolidated_cart.each do |current_item|
-    if current_coupon[:item] === current_item[:item]
+    if find_item_by_name_in_collection(current_item[:item], coupons)
     
-    else    
+    else 
+      updated_cart << current_item 
     end
   end 
 end
