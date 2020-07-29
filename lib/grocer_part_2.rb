@@ -15,7 +15,7 @@ def apply_coupons(cart, coupons)
       discounted_item[:price] = coupon[:cost] / coupon[:num]
       discounted_item[:clearance] = true 
       discounted_item[:count] = coupon[:num]
-      binding.pry 
+      
       if discounted_item[:count] > 0 
         updated_cart << discounted_item
       end 
