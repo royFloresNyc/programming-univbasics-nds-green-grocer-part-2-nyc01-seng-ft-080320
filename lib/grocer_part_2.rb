@@ -6,8 +6,9 @@ def apply_coupons(cart, coupons)
   consolidated_cart.each do |current_item|
     if find_item_by_name_in_collection(current_item[:item], coupons)
       coupon = find_item_by_name_in_collection(current_item[:item], coupons)
-      current_item[:count] -= coupon[:num]
-      updated_cart << current_item
+      updated_item = current_item 
+      updated_item[:count] -= coupon[:num]
+      updated_cart << updated__item
       discounted_item = {}
       discounted_item[:item] = "#{current_item[:item]} W/COUPON" 
       discounted_item[:price] = coupon[:cost] / coupon[:num]
