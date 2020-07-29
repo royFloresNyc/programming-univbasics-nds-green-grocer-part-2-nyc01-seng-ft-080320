@@ -3,8 +3,7 @@ require 'pry'
 
 def apply_coupons(cart, coupons)
   updated_cart = []
-  consolidated_cart = consolidate_cart(cart)
-  consolidated_cart.each do |current_item|
+  cart.each do |current_item|
     coupon = find_item_by_name_in_collection(current_item[:item], coupons)
     if coupon
       updated_item = current_item 
