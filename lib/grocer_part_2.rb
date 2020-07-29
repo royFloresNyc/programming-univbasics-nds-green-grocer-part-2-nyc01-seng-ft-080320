@@ -8,9 +8,9 @@ def apply_coupons(cart, coupons)
       coupon = find_item_by_name_in_collection(current_item[:item], coupons)
       updated_item = current_item 
       updated_item[:count] -= coupon[:num]
-      updated_cart << updated__item
+      updated_cart << updated_item
       discounted_item = {}
-      discounted_item[:item] = "#{current_item[:item]} W/COUPON" 
+      discounted_item[:item] = '#{current_item[:item]} W/COUPON'
       discounted_item[:price] = coupon[:cost] / coupon[:num]
       discounted_item[:clearance] = true 
       discounted_item[:count] = coupon[:num]
