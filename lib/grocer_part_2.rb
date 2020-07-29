@@ -5,11 +5,20 @@ def apply_coupons(cart, coupons)
   consolidated_cart = consolidate_cart(cart)
   consolidated_cart.each do |current_item|
     if find_item_by_name_in_collection(current_item[:item], coupons)
-    
+      coupon = find_item_by_name_in_collection(current_item[:item], coupons)
+      current_item[:count] -= coupon[:num]
+      updated_cart << current_item
+      discounted_item = {}
+      discounted_item[:item] = "#{current_item[:item]} W/COUPON" 
+      discounted_item[:price] = coupon[:cost] / coupon[:num]
+      discounted_item[:clearance] = true 
+      discounted_item[:count] = coupon[:num]
+      updated_cart << discounted_item
     else 
       updated_cart << current_item 
     end
   end 
+  updated_cart
 end
 
 def apply_clearance(cart)
