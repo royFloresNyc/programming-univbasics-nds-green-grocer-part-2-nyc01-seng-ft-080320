@@ -4,13 +4,13 @@ def apply_coupons(cart, coupons)
   updated_cart = []
   consolidated_cart = consolidate_cart(cart)
   consolidated_cart.each do |current_item|
-    if find_item_by_name_in_collection(current_item[:item], coupons)
-      coupon = find_item_by_name_in_collection(current_item[:item], coupons)
+    coupon = find_item_by_name_in_collection(current_item[:item], coupons)
+    if coupon
       updated_item = current_item 
       updated_item[:count] -= coupon[:num]
       updated_cart << updated_item
       discounted_item = {}
-      discounted_item[:item] = '#{current_item[:item]} W/COUPON'
+      discounted_item[:item] = "#{current_item[:item]} W/COUPON"
       discounted_item[:price] = coupon[:cost] / coupon[:num]
       discounted_item[:clearance] = true 
       discounted_item[:count] = coupon[:num]
